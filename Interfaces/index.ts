@@ -1,4 +1,4 @@
-export interface Pizzas {
+export interface Pizza {
   id: number;
   imageUrl: string;
   title: string;
@@ -7,10 +7,22 @@ export interface Pizzas {
   price: number;
   category: number;
   rating: number;
+  quantity: number;
+}
+export interface PizzaNoArray {
+  id: number;
+  imageUrl: string;
+  title: string;
+  types: number[];
+  sizes: number[];
+  price: number;
+  category: number;
+  rating: number;
+  quantity: number;
 }
 
 export interface UserPizzaStore {
-  quantity: number;
-  sortType: string;
-  userPizza: Pizzas[];
+  totalQuantity: number;
+  totalPrise: number;
+  userPizza: PizzaNoArray[];
 }

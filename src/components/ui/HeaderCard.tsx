@@ -1,4 +1,4 @@
-import Buy from '../assets/img/buy.svg?react';
+import Buy from '../../assets/img/buy.svg?react';
 
 interface HeaderCardProps {
   price: number;

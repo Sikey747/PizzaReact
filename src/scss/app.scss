@@ -10,7 +10,6 @@ body {
 }
 
 .wrapper {
-  width: calc(100vw - 100px);
   height: 100%;
   background-color: #fff;
   margin: 50px auto;
@@ -36,13 +35,19 @@ svg {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     row-gap: clamp(2rem, 1.3881rem + 3.0593vw, 4.065rem);
     column-gap: 2.1875rem;
+    &_cart {
+      display: flex;
+      flex-direction: column;
+
+      padding-top: 30px;
+      gap: 30px;
+    }
   }
 
   &__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    // overflow: hidden;
     gap: 16px;
   }
 }
@@ -120,14 +125,25 @@ svg {
     display: flex;
     width: 100%;
     border-top: 1px solid $gray-line;
-    padding-top: 30px;
-    margin-top: 30px;
+    gap: 5px;
+
+    &-left {
+      display: flex;
+      gap: 0.3125rem;
+      flex: 1 1 50%;
+    }
+
+    &-right {
+      flex: 1 1 50%;
+      display: flex;
+      gap: 0.3125rem;
+    }
 
     &-img {
       display: flex;
       align-items: center;
-      margin-right: 15px;
-      width: 10%;
+      // margin-right: 15px;
+      // width: 10%;
 
       img {
         width: 80px;
@@ -139,7 +155,7 @@ svg {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 40%;
+      flex: 1 1 40%;
 
       h3 {
         font-weight: bold;
@@ -158,15 +174,8 @@ svg {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 13%;
-
-      &-minus {
-        svg {
-          path:first-of-type {
-            display: none;
-          }
-        }
-      }
+      flex: 1 1 13%;
+      gap: 0.3125rem;
 
       b {
         font-size: 22px;
@@ -177,12 +186,13 @@ svg {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 33%;
+      flex: 1 1 33%;
 
       b {
         font-weight: bold;
         font-size: 22px;
         letter-spacing: 0.01em;
+        white-space: nowrap;
       }
     }
 
@@ -190,15 +200,13 @@ svg {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      width: 4%;
+      flex: 1 1 4%;
 
       .button {
         border-color: darken($color: $gray-line, $amount: 10);
       }
 
       svg {
-        transform: rotate(45deg);
-
         path {
           fill: darken($color: $gray-line, $amount: 15);
         }
@@ -321,11 +329,25 @@ svg {
   }
 }
 
-@media (max-width: 896px) {
+button:disabled {
+  cursor: no-drop !important;
+}
+
+@media (max-width: 768px) {
   .content {
+    &__title {
+      text-align: center;
+    }
+
     &__top {
       flex-wrap: wrap;
       justify-content: center;
     }
+  }
+}
+@media (max-width: 500px) {
+  .cart__item {
+    flex-direction: column;
+    gap: 15px;
   }
 }

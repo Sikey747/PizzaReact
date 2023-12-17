@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 
-function Categories() {
+interface CategoriesProps {
+  selectTypeUser: string;
+  onClick?: (e: string) => void;
+}
+
+function Categories({
+  selectTypeUser: selectCategory,
+  onClick,
+}: CategoriesProps) {
   const category = [
     'Все',
     'Мясные',
@@ -9,7 +17,6 @@ function Categories() {
     'Острые',
     'Закрытые',
   ];
-  const [selectCategory, setSelectCategory] = useState(category[0]);
 
   return (
     <div className="categories">
@@ -18,7 +25,7 @@ function Categories() {
           return (
             <li key={el}>
               <button
-                onClick={() => setSelectCategory(el)}
+                onClick={() => onClick && onClick(el)}
                 type="button"
                 className={selectCategory === el ? 'active' : ''}
               >

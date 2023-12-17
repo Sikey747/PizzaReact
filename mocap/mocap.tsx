@@ -35,7 +35,7 @@ export const pizzas = [
   {
     id: 3,
     imageUrl:
-      'https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/af553bf5-3887-4501-b88e-8f0f55229429.jpg',
+      'https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/6652fec1-04df-49d8-8744-232f1032c44b.jpg',
     title: 'Кисло-сладкий цыпленок',
     types: [1],
     sizes: [26, 30, 40],
@@ -110,3 +110,60 @@ export const pizzas = [
     rating: 7,
   },
 ];
+
+export const cartPizza = [
+  {
+    id: 0,
+    imageUrl:
+      'https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg',
+    title: 'Пепперони Фреш с перцем',
+    types: 1,
+    sizes: 30,
+    price: 803,
+    quantity: 2,
+  },
+  {
+    id: 1,
+    imageUrl:
+      'https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/6652fec1-04df-49d8-8744-232f1032c44b.jpg',
+    title: 'Сырная',
+    types: 0,
+    sizes: 26,
+    price: 522,
+    quantity: 1,
+  },
+  {
+    id: 2,
+    imageUrl:
+      'https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/6652fec1-04df-49d8-8744-232f1032c44b.jpg',
+    title: 'Цыпленок барбекю',
+    types: 0,
+    sizes: 30,
+    price: 560,
+    quantity: 4,
+  },
+  {
+    id: 3,
+    imageUrl:
+      'https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg',
+    title: 'Кисло-сладкий цыпленок',
+    types: 1,
+    sizes: 30,
+    price: 1803,
+    quantity: 5,
+  },
+];
+
+export const pizzaTypes = [
+  { title: 'тонкое', type: 0 },
+  { title: 'традиционное', type: 1 },
+];
+
+export const formatUaNumber = (number: number) => {
+  const formattedNumber = new Intl.NumberFormat('uk-UA', {
+    style: 'currency',
+    currency: 'UAH',
+    compactDisplay: 'short',
+  }).format(number);
+  return formattedNumber;
+};

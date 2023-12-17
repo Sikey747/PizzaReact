@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
-import { Pizzas as PizzasType } from '../../Interfaces/index';
-import Plus from '../assets/img/plus.svg?react';
+import { Pizza as PizzasType } from '../../../../Interfaces/index';
+import Plus from '../../../assets/img/plus.svg?react';
+import { pizzaTypes } from '../../../../mocap/mocap';
 
 interface PizzasTypeProps
-  extends Omit<PizzasType, 'id' | 'category' | 'rating'> {
+  extends Omit<PizzasType, 'id' | 'category' | 'rating' | 'quantity'> {
   numberSelectPizza?: number | undefined;
-  upCount?: () => void;
+  onClick: (selectSize: number, selectType: number, data: PizzasType) => void;
+  data: PizzasType;
 }
 
-function PizzaCard({
+const PizzaCard = React.memo(function PizzaCard({
   title,
   imageUrl,
   price,
   sizes,
   numberSelectPizza,
   types,
-  upCount,
+  onClick,
+  data,
 }: PizzasTypeProps) {
   const [selectSize, setSelectSize] = useState(sizes[0]);
   const [selectType, setSelectType] = useState(types[0]);
-  const pizzaTypes = [
-    { title: 'тонкое', type: 0 },
-    { title: 'традиционное', type: 1 },
-  ];
+
   const pizzaSizes = [26, 30, 40];
 
   return (
@@ -66,8 +66,8 @@ function PizzaCard({
       <div className="pizza-block__bottom">
         <div className="pizza-block__price">от {price} ₴</div>
         <button
+          onClick={() => onClick(selectSize, selectType, data)}
           type="button"
-          onClick={() => upCount && upCount()}
           className="button button--outline button--add"
         >
           <Plus />
@@ -77,6 +77,6 @@ function PizzaCard({
       </div>
     </div>
   );
-}
+});
 
 export default PizzaCard;

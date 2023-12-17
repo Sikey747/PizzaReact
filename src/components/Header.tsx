@@ -1,33 +1,33 @@
-import { useSelector, useDispatch } from 'react-redux';
-import Container from './Container';
-import HeaderCard from './HeaderCard';
-import { selectValue } from '../store/slice/AddSlice';
-import { Pizzas } from '../../Interfaces/index';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Container from './ui/Container';
+import HeaderCard from './ui/HeaderCard';
+import { selectValue } from '../store/slice/UserPizza';
+import { Pizza } from '../../Interfaces/index';
 
 function Header() {
   const storeData = useSelector(selectValue);
-  const dispatch = useDispatch();
-
-  const amountPrice = (pizza: Pizzas[]) => {
-    return pizza.reduce((sum, el) => {
-      return sum + el.price;
-    }, 0);
-  };
 
   return (
     <header className="header">
       <Container>
         <div className="header__logo">
-          <img width="38" src="../assets/img/logo.png" alt="Pizza logo" />
+          <img
+            width="38"
+            src="/src/assets/img/pizza-logo.svg"
+            alt="Pizza logo"
+          />
           <div>
             <h1>React Pizza</h1>
             <p>самая вкусная пицца во вселенной</p>
           </div>
         </div>
-        <HeaderCard
-          count={storeData.quantity}
-          price={amountPrice(storeData.userPizza)}
-        />
+        <Link to="/cart">
+          <HeaderCard
+            count={storeData.totalQuantity}
+            price={storeData.totalPrise}
+          />
+        </Link>
       </Container>
     </header>
   );
