@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Minus from '../../../assets/img/minus.svg?react';
 import Plus from '../../../assets/img/plus.svg?react';
 import Delete from '../../../assets/img/delete.svg?react';
@@ -9,8 +8,8 @@ interface CardItemsProps {
   src: string;
   name: string;
   quantity: number;
-  type: number;
-  size: number;
+  type: number | number[];
+  size: number | number[];
   prise: number;
   data: PizzaNoArray;
   remove: (data: PizzaNoArray) => void;
@@ -30,11 +29,9 @@ function CartItems({
   add,
   deleteItem,
 }: CardItemsProps) {
-  const typeSelectPizza = pizzaTypes.find((el) => {
-    if (el.type === type) {
-      return el.title;
-    }
-  });
+  const typeSelectPizza = pizzaTypes.find((el) =>
+    el.type === type ? el.title : null
+  );
 
   return (
     <div className="cart__item">

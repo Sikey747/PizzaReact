@@ -159,6 +159,20 @@ export const pizzaTypes = [
   { title: 'традиционное', type: 1 },
 ];
 
+export const category = [
+  { title: 'Все', number: 1000 },
+  { title: 'Мясные', number: 0 },
+  { title: 'Вегетарианская', number: 1 },
+  { title: 'Гриль', number: 2 },
+  { title: 'Острые', number: 3 },
+  { title: 'Закрытые', number: 4 },
+];
+export const sort = [
+  { title: 'популярности', type: 'rating' },
+  { title: 'цене', type: 'price' },
+  { title: 'алфавиту', type: 'title' },
+];
+
 export const formatUaNumber = (number: number) => {
   const formattedNumber = new Intl.NumberFormat('uk-UA', {
     style: 'currency',

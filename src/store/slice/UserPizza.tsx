@@ -1,4 +1,3 @@
-import { RootState } from '../store';
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { UserPizzaStore, Pizza } from '../../../Interfaces/index';
@@ -48,13 +47,11 @@ export const userPizzaSlice = createSlice({
       };
     },
     removePizzaFromStore: (state, action: PayloadAction<Pizza>) => {
-      let userPizza;
-
       const existingPizza = state.userPizza.find(
         (el) => el.id === action.payload.id
       );
 
-      userPizza = state.userPizza.map((el) => {
+      const userPizza = state.userPizza.map((el) => {
         if (el.id === existingPizza?.id) {
           if (el.quantity <= 0) {
             return { ...el, quantity: 0 };
@@ -111,7 +108,5 @@ export const {
   deletePizzaItemFromStore,
   deleteAllPizzaFromStore,
 } = userPizzaSlice.actions;
-
-export const selectValue = (state: RootState) => state.UserPizzaSlice;
 
 export default userPizzaSlice.reducer;

@@ -15,7 +15,7 @@ function NotFound() {
         </p>
         <img src="../assets/img/empty-cart.png" alt="Empty cart" />
         <a href="/" className="button button--black">
-          <button type="button">Вернуться назад</span>
+          <button type="button">Вернуться назад</button>
         </a>
       </div>
     </Container>

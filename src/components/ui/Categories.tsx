@@ -1,35 +1,26 @@
-import React, { useState } from 'react';
+import { category } from '../../../mocap/mocap';
 
 interface CategoriesProps {
-  selectTypeUser: string;
-  onClick?: (e: string) => void;
+  selectTypeUser: number;
+  onClick?: (e: number) => void;
 }
 
 function Categories({
   selectTypeUser: selectCategory,
   onClick,
 }: CategoriesProps) {
-  const category = [
-    'Все',
-    'Мясные',
-    'Вегетарианская',
-    'Гриль',
-    'Острые',
-    'Закрытые',
-  ];
-
   return (
     <div className="categories">
       <ul>
         {category.map((el) => {
           return (
-            <li key={el}>
+            <li key={el.title}>
               <button
-                onClick={() => onClick && onClick(el)}
+                onClick={() => onClick && onClick(el.number)}
                 type="button"
-                className={selectCategory === el ? 'active' : ''}
+                className={selectCategory === el.number ? 'active' : ''}
               >
-                {el}
+                {el.title}
               </button>
             </li>
           );

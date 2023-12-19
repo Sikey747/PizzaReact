@@ -3,13 +3,13 @@ import {
   deletePizzaItemFromStore,
   addPizzaToStore,
   removePizzaFromStore,
-  selectValue,
   deleteAllPizzaFromStore,
 } from '../src/store/slice/UserPizza';
 import { PizzaNoArray } from '../Interfaces/index';
+import { selectUserPizza } from '../src/store/slice/Selector';
 
 function useCart() {
-  const dataSlice = useSelector(selectValue);
+  const dataSlice = useSelector(selectUserPizza);
   const dispatch = useDispatch();
 
   const remove = (dataRemove: PizzaNoArray) => {

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { CartItems, Container } from '../components/ui/index';
 import Shop from '../assets/img/cart.svg?react';
-import Trash from '../assets/img/trash.svg/?react';
+import Trash from '../assets/img/trash.svg?react';
 import { formatUaNumber } from '../../mocap/mocap';
 import useCart from '../../hooks/useCart';
 

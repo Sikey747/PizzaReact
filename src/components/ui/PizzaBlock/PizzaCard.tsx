@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Pizza as PizzasType } from '../../../../Interfaces/index';
 import Plus from '../../../assets/img/plus.svg?react';
 import { pizzaTypes } from '../../../../mocap/mocap';
 
 interface PizzasTypeProps
-  extends Omit<PizzasType, 'id' | 'category' | 'rating' | 'quantity'> {
+  extends Omit<PizzasType, 'category' | 'rating' | 'quantity'> {
   numberSelectPizza?: number | undefined;
   onClick: (selectSize: number, selectType: number, data: PizzasType) => void;
   data: PizzasType;
+  location: any;
+  sizes: any;
+  types: any;
 }
 
 const PizzaCard = React.memo(function PizzaCard({
@@ -19,6 +23,8 @@ const PizzaCard = React.memo(function PizzaCard({
   types,
   onClick,
   data,
+  location,
+  id,
 }: PizzasTypeProps) {
   const [selectSize, setSelectSize] = useState(sizes[0]);
   const [selectType, setSelectType] = useState(types[0]);
@@ -27,8 +33,10 @@ const PizzaCard = React.memo(function PizzaCard({
 
   return (
     <div className="pizza-block">
-      <img className="pizza-block__image" src={imageUrl} alt={title} />
-      <h4 className="pizza-block__title">{title}</h4>
+      <Link to={`/modal/${id}`} state={{ backgroundLocation: location }}>
+        <img className="pizza-block__image" src={imageUrl} alt={title} />
+        <h4 className="pizza-block__title">{title}</h4>
+      </Link>
       <div className="pizza-block__selector">
         <ul>
           {pizzaTypes.map((el, idx) => {

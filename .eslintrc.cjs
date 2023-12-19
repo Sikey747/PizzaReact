@@ -20,6 +20,8 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
+    'react-hooks/exhaustive-deps': 'off',
+    'react/no-array-index-key': 'off',
     'import/prefer-default-export': 'off',
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 0,

@@ -1,10 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../store';
 
 const initialState = {
-  filterType: 'Все',
-  sortType: 'популярности',
+  filterType: 1000,
+  sortType: 'rating',
 };
 
 export const FilterPizza = createSlice({
@@ -20,11 +19,16 @@ export const FilterPizza = createSlice({
         sortType: action.payload,
       };
     },
+    setNewFilterData: (state, action) => {
+      return {
+        sortType: action.payload.sortType,
+        filterType: action.payload.filterType,
+      };
+    },
   },
 });
 
-export const { changeFilterType, changeSortType } = FilterPizza.actions;
-
-export const selectValue = (state: RootState) => state.FilterPizzaSlice;
+export const { changeFilterType, changeSortType, setNewFilterData } =
+  FilterPizza.actions;
 
 export default FilterPizza.reducer;

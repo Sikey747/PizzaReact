@@ -2,11 +2,10 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Container from './ui/Container';
 import HeaderCard from './ui/HeaderCard';
-import { selectValue } from '../store/slice/UserPizza';
-import { Pizza } from '../../Interfaces/index';
+import { selectUserPizza } from '../store/slice/Selector';
 
 function Header() {
-  const storeData = useSelector(selectValue);
+  const storeData = useSelector(selectUserPizza);
 
   return (
     <header className="header">
