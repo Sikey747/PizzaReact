@@ -2,9 +2,9 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import Layout from './Layout';
 import Spinner from '../src/assets/img/spiner.svg?react';
+import Modal from './components/Modal';
 
 const MainPage = lazy(() => import('./page/MainPage'));
-const Modal = lazy(() => import('./components/Modal'));
 const Cart = lazy(() => import('./page/Cart'));
 const NotFound = lazy(() => import('./page/NotFound'));
 

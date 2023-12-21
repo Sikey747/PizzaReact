@@ -10,17 +10,13 @@ function Header() {
   return (
     <header className="header">
       <Container>
-        <div className="header__logo">
-          <img
-            width="38"
-            src="/src/assets/img/pizza-logo.svg"
-            alt="Pizza logo"
-          />
+        <Link to="/" className="header__logo">
+          <img width="38" src="/assets/img/pizza-logo.svg" alt="Pizza logo" />
           <div>
             <h1>React Pizza</h1>
             <p>самая вкусная пицца во вселенной</p>
           </div>
-        </div>
+        </Link>
         <Link to="/cart">
           <HeaderCard
             count={storeData.totalQuantity}
