@@ -13,7 +13,7 @@ function NotFound() {
           <br />
           Для того, чтобы заказать пиццу, перейди на главную страницу.
         </p>
-        <img src="/assets/img/empty-cart.png" alt="Empty cart" />
+        <img src="assets/img/empty-cart.png" alt="Empty cart" />
         <a href="/" className="button button--black">
           <Link to="/">Вернуться назад</Link>
         </a>
