@@ -25,7 +25,8 @@ function App() {
           }
         >
           <Route index element={<MainPage />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/PizzaReact" element={<MainPage />} />
+          <Route path="cart" element={<Cart />} />
           <Route path="/*" element={<NotFound />} />
         </Route>
       </Routes>
